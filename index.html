@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html>
+<body>
+
+<div id="demo">
+<h1>The XMLHttpRequest Object123</h1>
+<button type="button" onclick="loadDoc()">Change Content</button>
+</div>
+
+<script>
+function loadDoc() {
+//var url = "https://cors-anywhere.herokuapp.com/http://tuftuf.gambitlabs.fi/feed.txt";
+
+
+
+
+
+  var url = "http://tuftuf.gambitlabs.fi/feed.txt";
+// var url = "test.txt" 
+ /*var xhttp = new XMLHttpRequest();
+ document.getElementById("demo").innerHTML = xhr.responseText;
+ xhttp.open("GET", url);
+ 
+ xhttp.send();*/
+ //document.getElementById("demo").innerHTML = xhttp.status;
+  let xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function() {
+    if (this.readyState === 4 && this.status === 200) {
+      document.getElementById("demo").innerHTML += this.responseText;
+	  }
+  }
+  xhr.open("GET", url);
+  xhr.setRequestHeader('Access-Control-Allow-Origin','*');
+  xhr.setRequestHeader('Content-type','application/json');
+  xhr.setRequestHeader('Access-Control-Allow-Methods','GET');
+  xhr.setRequestHeader('X-API-KEY', '/*API KEY*/');
+ // xhr.setRequestHeader("Accept", 'application/json');
+  xhr.send();
+
+      
+  
+  
+}
+
+
+</script>
+
+</body>
+</html>
