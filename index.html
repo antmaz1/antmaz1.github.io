@@ -30,7 +30,7 @@ function loadDoc() {
       document.getElementById("demo").innerHTML += this.responseText;
 	  }
   }
-
+  xhr.open("GET", url);
   xhr.send();
 
       
